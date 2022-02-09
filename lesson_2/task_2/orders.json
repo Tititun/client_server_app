@@ -1,0 +1,74 @@
+{
+    "orders": [
+        {
+            "item": "item_1",
+            "quantity": 5,
+            "price": 511,
+            "buyer": "client_1",
+            "date": "2021-01-20"
+        },
+        {
+            "item": "item_2",
+            "quantity": 3,
+            "price": 740,
+            "buyer": "client_2",
+            "date": "2021-07-10"
+        },
+        {
+            "item": "item_3",
+            "quantity": 2,
+            "price": 633,
+            "buyer": "client_3",
+            "date": "2021-01-02"
+        },
+        {
+            "item": "item_4",
+            "quantity": 7,
+            "price": 202,
+            "buyer": "client_4",
+            "date": "2021-09-07"
+        },
+        {
+            "item": "item_5",
+            "quantity": 6,
+            "price": 170,
+            "buyer": "client_5",
+            "date": "2021-06-16"
+        },
+        {
+            "item": "item_6",
+            "quantity": 2,
+            "price": 26,
+            "buyer": "client_6",
+            "date": "2021-08-13"
+        },
+        {
+            "item": "item_7",
+            "quantity": 5,
+            "price": 635,
+            "buyer": "client_7",
+            "date": "2021-02-11"
+        },
+        {
+            "item": "item_8",
+            "quantity": 7,
+            "price": 607,
+            "buyer": "client_8",
+            "date": "2021-08-22"
+        },
+        {
+            "item": "item_9",
+            "quantity": 7,
+            "price": 309,
+            "buyer": "client_9",
+            "date": "2021-02-15"
+        },
+        {
+            "item": "item_10",
+            "quantity": 7,
+            "price": 889,
+            "buyer": "client_10",
+            "date": "2021-11-22"
+        }
+    ]
+}
