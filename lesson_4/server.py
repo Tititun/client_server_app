@@ -4,6 +4,13 @@ from common.utils import send_message, read_message
 from common.variables import MAX_CONNECTIONS, MAX_LENGTH
 
 
+def compile_response(status, message, type_):
+    return {
+        'response': status,
+        type_: message
+    }
+
+
 def main():
     """
     Запускает работу сервера с аргументами из командной строки:
@@ -33,20 +40,13 @@ def main():
         if msg:
             user = msg.get('user', {}).get('account_name', 'Аноним')
             if msg.get('action') == 'presence':
-                response = {
-                    'response': 202,
-                    'alert': f'Привет, {user}!'
-                }
+                response = compile_response(202, f'Привет, {user}!', 'alert')
             else:
-                response = {
-                    'response': 401,
-                    'alert': 'Пожалуйста, авторизуйтесь'
-                }
+                response = compile_response(401, 'Пожалуйста, авторизуйтесь',
+                                            'alert')
         else:
-            response = {
-                'response': 404,
-                'error': 'Сообщение не могло быть декодировано'
-            }
+            response = compile_response(404, 'Сообщение не могло'
+                                             ' быть декодировано', 'error')
         print(response)
         send_message(client, response)
         client.close()
