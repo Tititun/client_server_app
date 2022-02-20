@@ -3,15 +3,14 @@ import sys
 import os
 import argparse
 sys.path.append(os.path.join(os.getcwd(), '..'))
-from server import main as server_main, compile_response
+from server import check_ip_port, compile_response
+
 
 class TestServer(TestCase):
 
-    @mock.patch('argparse.ArgumentParser.parse_args',
-                return_value=argparse.Namespace(address='127.0.0.1', port=''))
-    def test_failed_server(self, _):
+    def test_failed_server(self):
         """проверка, что если порт указан неверно, то сервер не запустится"""
-        self.assertRaises(TypeError, server_main)
+        self.assertFalse(check_ip_port('127.0.0.1', 100000))
 
     def test_response_success(self):
         """проверка первого аргумента функции compile_response"""
