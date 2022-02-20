@@ -3,12 +3,18 @@ from common.variables import MAX_LENGTH
 from common.utils import send_message, read_message
 import time
 import argparse
+import logging
+from log.client_log_config import client_logger
+
+logger = logging.getLogger('client_logger')
 
 
 def create_presence(send_to,
                     user: str = 'guest',
                     status: str = 'online'):
     """функция для отправки presence сообщения на сервер"""
+    logger.debug(f'функция create_presence вызвана с параметрами:'
+                 f' send_to: {send_to}, user: {user}, status: {status}')
     msg = {
         'action': 'presence',
         'time': time.time(),
@@ -24,10 +30,13 @@ def is_response_success(status_code):
     """
     функция для проверки статуса ответа от сервера
     """
+    logger.debug(f'функция is_response_success вызвана с параметром'
+                 f' status_code: {status_code}')
     if 300 >= status_code >= 100:
         return True
     else:
         return False
+
 
 def main():
     """
@@ -47,6 +56,8 @@ def main():
     parser.add_argument('-u', '--user', type=str, help='имя пользователя',
                         nargs='?', default='Guest')
     args = parser.parse_args()
+    logger.debug('Скрипт запущен с запросом на соединение с сервером '
+                 f'{args.address}:{args.port} от пользователя {args.user}')
 
     try:
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -56,17 +67,17 @@ def main():
         data = client.recv(MAX_LENGTH)
         msg = read_message(data)
         if msg:
-            print(f'Получен ответ от сервера с кодом {msg["response"]}:')
             for response_type in ['alert', 'error']:
                 if response := msg.get(response_type):
-                    print(response)
+                    logger.info(f'Получен ответ от сервера с кодом'
+                                f' {msg["response"]}, сообщение: {response}')
         else:
-            print('Ответ сервера не мог быть декодирован')
+            logger.error('Ответ сервера не мог быть декодирован')
 
         client.close()
     except ConnectionError:
-        print(f'Не удалось установить соединение с сервером '
-              f'{args.address}:{args.port}')
+        logger.error(f'Не удалось установить соединение с сервером '
+                     f'{args.address}:{args.port}')
 
 
 if __name__ == '__main__':
