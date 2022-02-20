@@ -5,7 +5,7 @@ import time
 import argparse
 
 
-def create_presence(send_to: socket.socket,
+def create_presence(send_to,
                     user: str = 'guest',
                     status: str = 'online'):
     """функция для отправки presence сообщения на сервер"""
@@ -19,6 +19,15 @@ def create_presence(send_to: socket.socket,
     }
     send_message(send_to, msg)
 
+
+def is_response_success(status_code):
+    """
+    функция для проверки статуса ответа от сервера
+    """
+    if 300 >= status_code >= 100:
+        return True
+    else:
+        return False
 
 def main():
     """
