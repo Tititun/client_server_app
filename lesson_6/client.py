@@ -4,17 +4,17 @@ from common.utils import send_message, read_message
 import time
 import argparse
 import logging
+from decorators import log
 from log.client_log_config import client_logger
 
 logger = logging.getLogger('client_logger')
 
 
+@log
 def create_presence(send_to,
                     user: str = 'guest',
                     status: str = 'online'):
     """функция для отправки presence сообщения на сервер"""
-    logger.debug(f'функция create_presence вызвана с параметрами:'
-                 f' send_to: {send_to}, user: {user}, status: {status}')
     msg = {
         'action': 'presence',
         'time': time.time(),
@@ -26,12 +26,11 @@ def create_presence(send_to,
     send_message(send_to, msg)
 
 
+@log
 def is_response_success(status_code):
     """
     функция для проверки статуса ответа от сервера
     """
-    logger.debug(f'функция is_response_success вызвана с параметром'
-                 f' status_code: {status_code}')
     if 300 >= status_code >= 100:
         return True
     else:

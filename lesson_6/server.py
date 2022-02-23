@@ -4,27 +4,30 @@ import argparse
 from common.utils import send_message, read_message
 from common.variables import MAX_CONNECTIONS, MAX_LENGTH
 import logging
+from decorators import log
 from log.server_log_config import server_logger
 
 logger = logging.getLogger('server_logger')
 
 
+@log
 def compile_response(status, message, type_):
-    logger.debug(f'функция compile_response вызвана с параметрами'
-                 f' status: {status}, message: {message}, type_: {type_}')
+    # logger.debug(f'функция compile_response вызвана с параметрами'
+    #              f' status: {status}, message: {message}, type_: {type_}')
     return {
         'response': status,
         type_: message
     }
 
 
+@log
 def check_ip_port(ip, port):
     """
     функция проверяет, чтобы ip соответствовал ipv4 формату и порт
     был в  пределах допустимых значений
     """
-    logger.debug(f'функция check_ip_port вызвана с параметрами'
-                 f' ip: {ip}, port: {port}')
+    # logger.debug(f'функция check_ip_port вызвана с параметрами'
+    #              f' ip: {ip}, port: {port}')
     ip_match = re.match(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', ip)
     port_match = port < 65535
     return ip_match and port_match
