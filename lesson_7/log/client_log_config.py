@@ -9,7 +9,7 @@ formatter = logging.Formatter('%(asctime)s %(levelname)-8s '
                               '%(module)s %(message)s')
 
 file_name = os.path.join(os.path.dirname(__file__), 'client.log')
-file_handler = logging.FileHandler(file_name, mode='w', encoding='utf-8')
+file_handler = logging.FileHandler(file_name, mode='a', encoding='utf-8')
 file_handler.setFormatter(formatter)
 
 stream_handler = logging.StreamHandler(sys.stdout)
