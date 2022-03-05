@@ -1,6 +1,9 @@
+import select
 import socket
 import re
 import argparse
+import time
+
 from common.utils import send_message, read_message
 from common.variables import MAX_CONNECTIONS, MAX_LENGTH
 import logging
@@ -32,6 +35,25 @@ def check_ip_port(ip, port):
     port_match = port < 65535
     return ip_match and port_match
 
+@log
+def process_message(rec):
+    """
+    функция обрабатывает сообщение формирует ответ для общего чата
+    """
+    message = read_message(rec)
+    response = {}
+    if message:
+        action = message.get('action')
+        user = message.get('user', {}).get('account_name', 'Guest')
+        if action == 'presence':
+            response['message'] = f'Пользователь {user} присоединился к чату'
+        elif action == 'message':
+            response['from'] = user
+            response['message'] = message.get('message')
+        response['status'] = 200
+        response['time'] = time.time()
+    return response
+
 
 def main():
     """
@@ -56,27 +78,57 @@ def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     s.bind((args.address, args.port))
+    s.settimeout(1)
     s.listen(MAX_CONNECTIONS)
 
+    clients = []
     while True:
-        client, addr = s.accept()
-        logger.info(f'Получен запрос на соединение от {addr}')
-        data = client.recv(MAX_LENGTH)
-        msg = read_message(data)
-        logger.info(f'Получено сообщение от {addr}: {msg}')
-        if msg:
-            user = msg.get('user', {}).get('account_name', 'Аноним')
-            if msg.get('action') == 'presence':
-                response = compile_response(202, f'Привет, {user}!', 'alert')
-            else:
-                response = compile_response(401, 'Пожалуйста, авторизуйтесь',
-                                            'alert')
+        try:
+            client, addr = s.accept()
+            logger.info(f'Получен запрос на соединение от {addr}')
+        except OSError:
+            pass
         else:
-            response = compile_response(404, 'Сообщение не могло'
-                                             ' быть декодировано', 'error')
-        send_message(client, response)
-        logger.info(f'Отправлен ответ для {addr}: {response}')
-        client.close()
+            clients.append(client)
+            logger.info(f'Установлено соединение с {client}')
+
+        recieved, listeners, err = [], [], []
+        try:
+            if clients:
+                recieved, listeners, err = select.select(clients, clients,
+                                                         [], 0)
+        except:
+            continue
+
+        logger.info(f'Получено {len(recieved)} сообщений')
+        messages = []   # собираем все полученные сообщения
+        if recieved:
+            for rec in recieved:
+                try:
+                    message = rec.recv(MAX_LENGTH)
+                    rec.close()
+                    clients.remove(rec)
+                    if message == b'':
+                        continue
+                    if msg := process_message(message):
+                        messages.append(msg)
+                except:
+                    if rec in clients:
+                        clients.remove(rec)
+
+        # если сообщения есть, то отправляем их всем слушающим пользователям:
+        logger.info(f'{len(listeners)} пользователей ожидают сообщения')
+        for listener in listeners:
+            if listener not in clients:
+                continue
+            try:
+                for message in messages:
+                    logger.info(f'Отправляется сообщение {message}')
+                    send_message(listener, message)
+            except:
+                # клиент отсоединился
+                clients.remove(listener)
+
 
 
 if __name__ == '__main__':
