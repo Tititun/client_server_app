@@ -36,9 +36,9 @@ def check_ip_port(ip, port):
     return ip_match and port_match
 
 @log
-def process_message(rec):
+def process_message(rec, users, socket_):
     """
-    функция обрабатывает сообщение формирует ответ для общего чата
+    функция обрабатывает сообщение формирует ответ
     """
     message = read_message(rec)
     response = {}
@@ -47,13 +47,24 @@ def process_message(rec):
         user = message.get('user', {}).get('account_name', 'Guest')
         if action == 'presence':
             response['message'] = f'Пользователь {user} присоединился к чату'
+            users[user] = socket_
         elif action == 'message':
             response['from'] = user
             response['message'] = message.get('message')
+            response['to'] = message.get('to')
         response['status'] = 200
         response['time'] = time.time()
     return response
 
+@log
+def delete_user(user: socket, users_dict: dict):
+    """
+    удаляет пользователя из списка активных пользователей
+    """
+    for name, socket_ in users_dict.items():
+        if socket_ == user:
+            del users_dict[name]
+            break
 
 def main():
     """
@@ -82,6 +93,8 @@ def main():
     s.listen(MAX_CONNECTIONS)
 
     clients = []
+    users = {}
+
     while True:
         try:
             client, addr = s.accept()
@@ -102,33 +115,34 @@ def main():
 
         logger.info(f'Получено {len(recieved)} сообщений')
         messages = []   # собираем все полученные сообщения
+        print('Пользователи:', users)
         if recieved:
             for rec in recieved:
                 try:
                     message = rec.recv(MAX_LENGTH)
-                    rec.close()
-                    clients.remove(rec)
                     if message == b'':
-                        continue
-                    if msg := process_message(message):
+                        raise Exception
+                    if msg := process_message(message, users, rec):
                         messages.append(msg)
                 except:
+                    delete_user(rec, users)
                     if rec in clients:
                         clients.remove(rec)
 
         # если сообщения есть, то отправляем их всем слушающим пользователям:
         logger.info(f'{len(listeners)} пользователей ожидают сообщения')
         for listener in listeners:
-            if listener not in clients:
-                continue
             try:
                 for message in messages:
+                    to = message.get('to')
+                    if to and users.get(to) != listener:
+                        continue
                     logger.info(f'Отправляется сообщение {message}')
                     send_message(listener, message)
             except:
                 # клиент отсоединился
+                delete_user(listener, users)
                 clients.remove(listener)
-
 
 
 if __name__ == '__main__':

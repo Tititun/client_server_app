@@ -1,66 +1,68 @@
-2022-02-28 00:27:09,675 DEBUG    server Сервер запущен с параметрами: ip - 127.0.0.1 port - 8888
-2022-02-28 00:27:09,678 DEBUG    decorators check_ip_port вызвана из функции main с аргументами ('127.0.0.1', 8888), {}. Результат: True
-2022-02-28 00:27:10,680 INFO     server Получено 0 сообщений
-2022-02-28 00:27:10,680 INFO     server 0 пользователей ожидают сообщения
-2022-02-28 00:27:11,681 INFO     server Получено 0 сообщений
-2022-02-28 00:27:11,681 INFO     server 0 пользователей ожидают сообщения
-2022-02-28 00:27:12,104 INFO     server Получен запрос на соединение от ('127.0.0.1', 53756)
-2022-02-28 00:27:12,104 INFO     server Установлено соединение с <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 53756)>
-2022-02-28 00:27:12,104 INFO     server Получено 0 сообщений
-2022-02-28 00:27:12,104 INFO     server 1 пользователей ожидают сообщения
-2022-02-28 00:27:13,105 INFO     server Получено 0 сообщений
-2022-02-28 00:27:13,106 INFO     server 1 пользователей ожидают сообщения
-2022-02-28 00:27:14,107 INFO     server Получено 0 сообщений
-2022-02-28 00:27:14,107 INFO     server 1 пользователей ожидают сообщения
-2022-02-28 00:27:15,108 INFO     server Получено 0 сообщений
-2022-02-28 00:27:15,108 INFO     server 1 пользователей ожидают сообщения
-2022-02-28 00:27:15,617 INFO     server Получен запрос на соединение от ('127.0.0.1', 53758)
-2022-02-28 00:27:15,617 INFO     server Установлено соединение с <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 53758)>
-2022-02-28 00:27:15,617 INFO     server Получено 1 сообщений
-2022-02-28 00:27:15,617 DEBUG    decorators process_message вызвана из функции main с аргументами (b'{"action": "message", "time": 1645982835.6169796, "message": "\\u043a\\u0443\\u0440\\u0438\\u0446\\u0430", "user": {"account_name": "Another_user_1", "status": "online"}}',), {}. Результат: {'from': 'Another_user_1', 'message': 'курица', 'status': 200, 'time': 1645982835.6173139}
-2022-02-28 00:27:15,617 INFO     server 2 пользователей ожидают сообщения
-2022-02-28 00:27:15,617 INFO     server Отправляется сообщение {'from': 'Another_user_1', 'message': 'курица', 'status': 200, 'time': 1645982835.6173139}
-2022-02-28 00:27:16,618 INFO     server Получено 0 сообщений
-2022-02-28 00:27:16,619 INFO     server 1 пользователей ожидают сообщения
-2022-02-28 00:27:17,375 INFO     server Получен запрос на соединение от ('127.0.0.1', 53760)
-2022-02-28 00:27:17,375 INFO     server Установлено соединение с <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 53760)>
-2022-02-28 00:27:17,375 INFO     server Получено 1 сообщений
-2022-02-28 00:27:17,375 DEBUG    decorators process_message вызвана из функции main с аргументами (b'{"action": "message", "time": 1645982837.3750157, "message": "\\u0441\\u043e\\u0431\\u0430\\u043a\\u0430", "user": {"account_name": "Another_user_2", "status": "online"}}',), {}. Результат: {'from': 'Another_user_2', 'message': 'собака', 'status': 200, 'time': 1645982837.3753438}
-2022-02-28 00:27:17,375 INFO     server 2 пользователей ожидают сообщения
-2022-02-28 00:27:17,375 INFO     server Отправляется сообщение {'from': 'Another_user_2', 'message': 'собака', 'status': 200, 'time': 1645982837.3753438}
-2022-02-28 00:27:18,376 INFO     server Получено 0 сообщений
-2022-02-28 00:27:18,376 INFO     server 1 пользователей ожидают сообщения
-2022-02-28 00:27:19,152 INFO     server Получен запрос на соединение от ('127.0.0.1', 53762)
-2022-02-28 00:27:19,152 INFO     server Установлено соединение с <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 53762)>
-2022-02-28 00:27:19,152 INFO     server Получено 1 сообщений
-2022-02-28 00:27:19,152 DEBUG    decorators process_message вызвана из функции main с аргументами (b'{"action": "message", "time": 1645982839.1522036, "message": "\\u043a\\u043e\\u0440\\u043e\\u0432\\u0430", "user": {"account_name": "Another_user_3", "status": "online"}}',), {}. Результат: {'from': 'Another_user_3', 'message': 'корова', 'status': 200, 'time': 1645982839.1525106}
-2022-02-28 00:27:19,152 INFO     server 2 пользователей ожидают сообщения
-2022-02-28 00:27:19,152 INFO     server Отправляется сообщение {'from': 'Another_user_3', 'message': 'корова', 'status': 200, 'time': 1645982839.1525106}
-2022-02-28 00:27:20,153 INFO     server Получено 0 сообщений
-2022-02-28 00:27:20,154 INFO     server 1 пользователей ожидают сообщения
-2022-02-28 00:27:20,999 INFO     server Получен запрос на соединение от ('127.0.0.1', 53764)
-2022-02-28 00:27:20,999 INFO     server Установлено соединение с <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 53764)>
-2022-02-28 00:27:20,999 INFO     server Получено 1 сообщений
-2022-02-28 00:27:21,000 DEBUG    decorators process_message вызвана из функции main с аргументами (b'{"action": "message", "time": 1645982840.9996595, "message": "\\u0441\\u043e\\u0431\\u0430\\u043a\\u0430", "user": {"account_name": "Another_user_2", "status": "online"}}',), {}. Результат: {'from': 'Another_user_2', 'message': 'собака', 'status': 200, 'time': 1645982840.9999917}
-2022-02-28 00:27:21,000 INFO     server 2 пользователей ожидают сообщения
-2022-02-28 00:27:21,000 INFO     server Отправляется сообщение {'from': 'Another_user_2', 'message': 'собака', 'status': 200, 'time': 1645982840.9999917}
-2022-02-28 00:27:22,001 INFO     server Получено 0 сообщений
-2022-02-28 00:27:22,001 INFO     server 1 пользователей ожидают сообщения
-2022-02-28 00:27:22,335 INFO     server Получен запрос на соединение от ('127.0.0.1', 53766)
-2022-02-28 00:27:22,335 INFO     server Установлено соединение с <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 53766)>
-2022-02-28 00:27:22,335 INFO     server Получено 1 сообщений
-2022-02-28 00:27:22,335 DEBUG    decorators process_message вызвана из функции main с аргументами (b'{"action": "message", "time": 1645982842.3352952, "message": "\\u043a\\u043e\\u0440\\u043e\\u0432\\u0430", "user": {"account_name": "Another_user_3", "status": "online"}}',), {}. Результат: {'from': 'Another_user_3', 'message': 'корова', 'status': 200, 'time': 1645982842.3356369}
-2022-02-28 00:27:22,335 INFO     server 2 пользователей ожидают сообщения
-2022-02-28 00:27:22,335 INFO     server Отправляется сообщение {'from': 'Another_user_3', 'message': 'корова', 'status': 200, 'time': 1645982842.3356369}
-2022-02-28 00:27:23,336 INFO     server Получено 0 сообщений
-2022-02-28 00:27:23,336 INFO     server 1 пользователей ожидают сообщения
-2022-02-28 00:27:24,337 INFO     server Получено 0 сообщений
-2022-02-28 00:27:24,337 INFO     server 1 пользователей ожидают сообщения
-2022-02-28 00:27:25,339 INFO     server Получено 0 сообщений
-2022-02-28 00:27:25,339 INFO     server 1 пользователей ожидают сообщения
-2022-02-28 00:27:26,340 INFO     server Получено 0 сообщений
-2022-02-28 00:27:26,340 INFO     server 1 пользователей ожидают сообщения
-2022-02-28 00:27:27,342 INFO     server Получено 1 сообщений
-2022-02-28 00:27:27,342 INFO     server 1 пользователей ожидают сообщения
-2022-02-28 00:27:28,344 INFO     server Получено 0 сообщений
-2022-02-28 00:27:28,344 INFO     server 0 пользователей ожидают сообщения
+2022-03-06 18:31:05,152 DEBUG    server Сервер запущен с параметрами: ip - 127.0.0.1 port - 8888
+2022-03-06 18:31:05,155 DEBUG    decorators check_ip_port вызвана из функции main с аргументами ('127.0.0.1', 8888), {}. Результат: True
+2022-03-06 18:31:06,156 INFO     server Получено 0 сообщений
+2022-03-06 18:31:06,156 INFO     server 0 пользователей ожидают сообщения
+2022-03-06 18:31:07,152 INFO     server Получен запрос на соединение от ('127.0.0.1', 51692)
+2022-03-06 18:31:07,152 INFO     server Установлено соединение с <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 51692)>
+2022-03-06 18:31:07,152 INFO     server Получено 1 сообщений
+2022-03-06 18:31:07,152 DEBUG    decorators process_message вызвана из функции main с аргументами (b'{"action": "presence", "time": 1646566267.151979, "user": {"account_name": "Ivan", "status": "online"}}', {'Ivan': <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 51692)>}, <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 51692)>), {}. Результат: {'message': 'Пользователь Ivan присоединился к чату', 'status': 200, 'time': 1646566267.152351}
+2022-03-06 18:31:07,152 INFO     server 1 пользователей ожидают сообщения
+2022-03-06 18:31:07,152 INFO     server Отправляется сообщение {'message': 'Пользователь Ivan присоединился к чату', 'status': 200, 'time': 1646566267.152351}
+2022-03-06 18:31:08,153 INFO     server Получено 0 сообщений
+2022-03-06 18:31:08,153 INFO     server 1 пользователей ожидают сообщения
+2022-03-06 18:31:08,587 INFO     server Получен запрос на соединение от ('127.0.0.1', 51694)
+2022-03-06 18:31:08,587 INFO     server Установлено соединение с <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 51694)>
+2022-03-06 18:31:08,587 INFO     server Получено 1 сообщений
+2022-03-06 18:31:08,587 DEBUG    decorators process_message вызвана из функции main с аргументами (b'{"action": "presence", "time": 1646566268.5870073, "user": {"account_name": "Maria", "status": "online"}}', {'Ivan': <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 51692)>, 'Maria': <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 51694)>}, <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 51694)>), {}. Результат: {'message': 'Пользователь Maria присоединился к чату', 'status': 200, 'time': 1646566268.5873883}
+2022-03-06 18:31:08,587 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:08,587 INFO     server Отправляется сообщение {'message': 'Пользователь Maria присоединился к чату', 'status': 200, 'time': 1646566268.5873883}
+2022-03-06 18:31:08,587 INFO     server Отправляется сообщение {'message': 'Пользователь Maria присоединился к чату', 'status': 200, 'time': 1646566268.5873883}
+2022-03-06 18:31:09,588 INFO     server Получено 0 сообщений
+2022-03-06 18:31:09,589 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:10,590 INFO     server Получено 0 сообщений
+2022-03-06 18:31:10,590 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:11,591 INFO     server Получено 0 сообщений
+2022-03-06 18:31:11,591 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:12,592 INFO     server Получено 0 сообщений
+2022-03-06 18:31:12,592 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:13,593 INFO     server Получено 0 сообщений
+2022-03-06 18:31:13,593 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:14,594 INFO     server Получено 1 сообщений
+2022-03-06 18:31:14,595 DEBUG    decorators process_message вызвана из функции main с аргументами (b'{"action": "message", "time": 1646566273.9745023, "message": "Hi", "to": "Maria", "user": {"account_name": "Ivan", "status": "online"}}', {'Ivan': <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 51692)>, 'Maria': <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 51694)>}, <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 51692)>), {}. Результат: {'from': 'Ivan', 'message': 'Hi', 'to': 'Maria', 'status': 200, 'time': 1646566274.5949044}
+2022-03-06 18:31:14,595 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:14,595 INFO     server Отправляется сообщение {'from': 'Ivan', 'message': 'Hi', 'to': 'Maria', 'status': 200, 'time': 1646566274.5949044}
+2022-03-06 18:31:15,596 INFO     server Получено 0 сообщений
+2022-03-06 18:31:15,596 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:16,597 INFO     server Получено 0 сообщений
+2022-03-06 18:31:16,597 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:17,598 INFO     server Получено 0 сообщений
+2022-03-06 18:31:17,598 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:18,599 INFO     server Получено 1 сообщений
+2022-03-06 18:31:18,600 DEBUG    decorators process_message вызвана из функции main с аргументами (b'{"action": "message", "time": 1646566278.5586798, "message": "Hello", "to": "Ivan", "user": {"account_name": "Maria", "status": "online"}}', {'Ivan': <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 51692)>, 'Maria': <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 51694)>}, <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 51694)>), {}. Результат: {'from': 'Maria', 'message': 'Hello', 'to': 'Ivan', 'status': 200, 'time': 1646566278.6000226}
+2022-03-06 18:31:18,600 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:18,600 INFO     server Отправляется сообщение {'from': 'Maria', 'message': 'Hello', 'to': 'Ivan', 'status': 200, 'time': 1646566278.6000226}
+2022-03-06 18:31:19,601 INFO     server Получено 0 сообщений
+2022-03-06 18:31:19,601 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:20,602 INFO     server Получено 0 сообщений
+2022-03-06 18:31:20,602 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:21,603 INFO     server Получено 0 сообщений
+2022-03-06 18:31:21,603 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:22,605 INFO     server Получено 0 сообщений
+2022-03-06 18:31:22,605 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:23,606 INFO     server Получено 0 сообщений
+2022-03-06 18:31:23,606 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:24,608 INFO     server Получено 1 сообщений
+2022-03-06 18:31:24,609 DEBUG    decorators process_message вызвана из функции main с аргументами (b'{"action": "message", "time": 1646566284.2191367, "message": "test", "to": "lll", "user": {"account_name": "Maria", "status": "online"}}', {'Ivan': <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 51692)>, 'Maria': <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 51694)>}, <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 51694)>), {}. Результат: {'from': 'Maria', 'message': 'test', 'to': 'lll', 'status': 200, 'time': 1646566284.6089954}
+2022-03-06 18:31:24,610 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:25,610 INFO     server Получено 0 сообщений
+2022-03-06 18:31:25,610 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:26,611 INFO     server Получено 0 сообщений
+2022-03-06 18:31:26,611 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:27,612 INFO     server Получено 0 сообщений
+2022-03-06 18:31:27,612 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:28,613 INFO     server Получено 0 сообщений
+2022-03-06 18:31:28,614 INFO     server 2 пользователей ожидают сообщения
+2022-03-06 18:31:29,615 INFO     server Получено 2 сообщений
+2022-03-06 18:31:29,616 DEBUG    decorators delete_user вызвана из функции main с аргументами (<socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 51692)>, {'Maria': <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 51694)>}), {}. Результат: None
+2022-03-06 18:31:29,617 DEBUG    decorators delete_user вызвана из функции main с аргументами (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8888), raddr=('127.0.0.1', 51694)>, {}), {}. Результат: None
+2022-03-06 18:31:29,618 INFO     server 2 пользователей ожидают сообщения
