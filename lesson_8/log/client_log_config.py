@@ -4,7 +4,7 @@ import os
 
 
 client_logger = logging.getLogger('client_logger')
-client_logger.setLevel(logging.DEBUG)
+client_logger.setLevel(logging.INFO)
 formatter = logging.Formatter('%(asctime)s %(levelname)-8s '
                               '%(module)s %(message)s')
 
